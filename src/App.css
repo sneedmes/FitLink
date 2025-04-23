@@ -1,38 +1,66 @@
-.App {
-  text-align: center;
+@import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap');
+
+body{
+  background-color: var(--color-back);
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+h1, h2, h3, h4, h5, h6, p{
+  margin: 0;
+  font-family: "Inter", sans-serif;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+h1{
+  font-size: 32px;
+  font-weight: 800;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
+h2{
+  font-size: 24px;
+  font-weight: 800;
+}
+
+h3{
+  font-size: 20px;
+  font-weight: 500;
+}
+
+h4{
+  font-size: 18px;
+  font-weight: 500;
+}
+
+h5{
+  font-size: 16px;
+  font-weight: 500;
+}
+
+h6{
+  font-size: 12px;
+  font-weight: 500;
+}
+
+a{
+  text-decoration: none;
   color: white;
 }
 
-.App-link {
-  color: #61dafb;
+button{
+  padding: 0;
+  margin: 0;
+  font-family: "Inter", sans-serif;
+  background: none;
+  border: none;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+:root{
+  --color-main: #00091B;
+  --color-secondary: #A2B6BF;
+  --color-active: #88B6A6;
+  --color-passive: #D9D9D9;
+  --color-back: #EFEFEF;
+
+  --padding-top: 30px;
+  --margin-title: 60px;
+  --gap-form: 50px;
+  --border-radius: 6px;
 }

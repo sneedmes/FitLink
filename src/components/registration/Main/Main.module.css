@@ -1,0 +1,38 @@
+.main{
+    margin-left: 230px;
+}
+
+.info_container{
+    margin: 30px 50px;
+}
+
+.title{
+    background-color: white;
+    color: black;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    height: 80px;
+}
+
+.info_main, .info_developers, .info_coach, .info_athlete{
+    padding: 27px 100px 27px 32px;
+    background-color: white;
+    border-radius: var(--border-radius);
+    margin-bottom: 30px;
+}
+
+.info_main h1, .info_developers h1, .info_coach h1, .info_athlete h1{
+    margin-bottom: 35px;
+}
+
+.info_coach, .info_athlete {
+    list-style: url("../../../assets/materials/list.png");
+}
+
+.info_button{
+    display: flex;
+    justify-content: center;
+    height: 90px;
+}

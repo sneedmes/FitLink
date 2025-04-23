@@ -1,0 +1,23 @@
+.header{
+    color: white;
+}
+
+.header:hover{
+    cursor: pointer;
+}
+
+.main{
+    border-radius: var(--border-radius);
+    border: black solid 3px;
+    background-color: var(--color-active);
+    color: black;
+    text-align: center;
+    padding: 10px;
+    width: 700px;
+    height: 60px;
+}
+
+.main:hover{
+    cursor: pointer;
+    opacity: 90%;
+}

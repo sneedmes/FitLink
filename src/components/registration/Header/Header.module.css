@@ -1,0 +1,36 @@
+header{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: fixed;
+    left: 0;
+    top: 0;
+
+    width: 230px;
+    height: 720px;
+
+    color: #ffffff;
+    background-color: var(--color-main);
+}
+
+.container{
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+}
+
+.logo{
+    margin-bottom: 60px;
+}
+
+.nav{
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin-top: 60px;
+    align-items: flex-start;
+}
+
+Button:first-child{
+    margin-bottom: 300px;
+}
