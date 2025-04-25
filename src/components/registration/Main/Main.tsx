@@ -1,8 +1,11 @@
 import React from 'react';
 import style from './Main.module.css'
 import {Button} from "../../Button/Button";
+import { useNavigate } from 'react-router-dom';
+import Header from "../Header/Header";
 
 export const Main = () => {
+    const navigate = useNavigate()
 
     const about = [
         {
@@ -17,6 +20,7 @@ export const Main = () => {
 
     return (
         <section className={`${style.main}`}>
+            <Header/>
             <div className={`${style.title}`}>
                 <h1>Главная</h1>
             </div>
@@ -67,7 +71,7 @@ export const Main = () => {
                 <div className={`${style.info_button}`}>
                     <Button position={"main"}
                             title={"Перейти к регистрации"}
-                            onClick={() => 'hello'}
+                            onClick={() => navigate('/SignUp')}
                             isActive={true}/>
                 </div>
 

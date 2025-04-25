@@ -27,8 +27,9 @@
     margin-bottom: 35px;
 }
 
-.info_coach, .info_athlete {
+.info_coach li, .info_athlete li{
     list-style: url("../../../assets/materials/list.png");
+    vertical-align: top;
 }
 
 .info_button{
@@ -36,3 +37,4 @@
     justify-content: center;
     height: 90px;
 }
+

@@ -21,3 +21,37 @@
     cursor: pointer;
     opacity: 90%;
 }
+
+.signup{
+    border-radius: var(--border-radius);
+    border: black solid 3px;
+    background-color: var(--color-active);
+    color: black;
+    text-align: center;
+    width: 250px;
+    height: 40px;
+}
+
+.signup:hover{
+    cursor: pointer;
+    opacity: 90%;
+}
+
+.signup_role{
+    border-radius: var(--border-radius);
+    border: black solid 3px;
+    background-color: var(--color-passive);
+    color: black;
+    text-align: center;
+    width: 250px;
+    height: 40px;
+}
+
+.signup_role:hover{
+    cursor: pointer;
+    opacity: 90%;
+}
+
+.signup_role_active{
+    background-color: var(--color-secondary);
+}

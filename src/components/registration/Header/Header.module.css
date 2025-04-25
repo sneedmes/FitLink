@@ -31,6 +31,6 @@ header{
     align-items: flex-start;
 }
 
-Button:first-child{
+.nav span{
     margin-bottom: 300px;
 }

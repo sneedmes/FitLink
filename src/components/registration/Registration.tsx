@@ -1,24 +1,22 @@
-import React, {useState} from 'react';
 import {Main} from "./Main/Main";
 import style from "./Registration.module.css";
 import Header from "./Header/Header";
 import LogIn from "./LogIn/LogIn";
+import {SignUp, Code, Role} from "./SignUp/SignUp";
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
 
 const Registration = () => {
-    const [tab, setTab] = useState('Main')
-    const handleClick=(tab: string)=>{
-        setTab(tab)
-    }
     return (
         <section className={`${style.registration}`}>
-            <div className={`${style.header}`}>
-                <Header handleClick={handleClick}/>
-            </div>
-            <div className={`${style.reg_main}`}>
-                {tab === "Main" && <Main/>}
-                {tab === "LogIn" && <LogIn/>}
-                {tab === "SignUp" && <><h1>Hello</h1></>}
-            </div>
+            <BrowserRouter>
+                <Routes>
+                    <Route path="/" element={<Main/>}/>
+                    <Route path="Main" element={<Header/>}/>
+                    <Route path="SignUp" element={<SignUp/>}/>
+                    <Route path="Code" element={<Code/>}/>
+                    <Route path="Role" element={<Role/>}/>
+                </Routes>
+            </BrowserRouter>
         </section>
     );
 };

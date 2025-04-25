@@ -1,11 +1,11 @@
 import style from "./Header.module.css"
 import {Button} from "../../Button/Button";
+import { useNavigate } from 'react-router-dom';
+import React from "react";
 
-type HeaderProps = {
-    handleClick: (tab: string)=>void
-}
+const Header = () => {
+    const navigate = useNavigate()
 
-const Header = ({handleClick}:HeaderProps) => {
     return (
         <header>
             <section className={`${style.container}`}>
@@ -13,10 +13,9 @@ const Header = ({handleClick}:HeaderProps) => {
                     <img src="logo.png" alt=""/>
                 </div>
                 <div className={`${style.nav}`}>
-                    <Button position={'header'} title={"Главная"} onClick={() => handleClick('Main')} isActive={false}/>
-                    <Button position={'header'} title={"Войти"} onClick={() => handleClick('LogIn')} isActive={false}/>
-                    <Button position={'header'} title={"Регистрация"} onClick={() => handleClick('SignUp')}
-                            isActive={false}/>
+                    <span><Button position={'header'} title={"Главная"} onClick={() => navigate('/')} isActive={false}/></span>
+                    <Button position={'header'} title={"Войти"} onClick={() => navigate('/LogIn')} isActive={false}/>
+                    <Button position={'header'} title={"Регистрация"} onClick={() => navigate('/SignUp')} isActive={false}/>
                 </div>
             </section>
         </header>
