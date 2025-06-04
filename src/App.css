@@ -64,3 +64,7 @@ button{
   --gap-form: 50px;
   --border-radius: 6px;
 }
+
+.registration, .coach {
+  display: flex;
+}

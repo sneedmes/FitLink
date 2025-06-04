@@ -23,7 +23,7 @@ header{
     margin-bottom: 60px;
 }
 
-.nav{
+.nav_reg, .nav_coach{
     display: flex;
     flex-direction: column;
     gap: 10px;
@@ -31,6 +31,10 @@ header{
     align-items: flex-start;
 }
 
-.nav span{
+.nav_reg span{
     margin-bottom: 300px;
+}
+
+.nav_coach span{
+    margin-top: 200px; /*CHANGE ALL SIZES!*/
 }

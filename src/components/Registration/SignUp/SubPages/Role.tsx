@@ -1,7 +1,7 @@
 import {useNavigate} from "react-router-dom";
 import React, {useState} from "react";
 import style from "../SignUp.module.css";
-import Header from "../../Header/Header";
+import Header from "../../../Header/Header";
 import {Button} from "../../../Button/Button";
 
 export const Role = () => {
@@ -14,9 +14,34 @@ export const Role = () => {
     const changeHasTeam = (hasTeam: string) => {
         setHasTeam(hasTeam)
     }
+    const checkAnswers = (role: string, hasTeam: string) => {
+        if ((role === 'Тренер' || role === 'Спортсмен') && hasTeam === 'Да') {
+            return <>
+                <Button position={"signup"}
+                        title={'Далее'}
+                        onClick={() => navigate('/FindTeam')}
+                        isActive={true}/>
+            </>
+        } else if(role === 'Тренер' && hasTeam === 'Нет') {
+            return <>
+                <Button position={"signup"}
+                        title={'Далее'}
+                        onClick={() => navigate('/AskCreateTeam')}
+                        isActive={true}/>
+            </>
+        } else {
+            return <>
+                <Button position={"signup"}
+                        title={'Далее'}
+                        onClick={() => navigate('/')}
+                        isActive={true}/>
+            </>
+        }
+    }
+
     return (
         <section className={`${style.signup}`}>
-            <Header/>
+            <Header position={'reg'}/>
             <div className={`${style.title}`}>
                 <h1>Регистрация</h1>
             </div>
@@ -44,10 +69,7 @@ export const Role = () => {
                                 onClick={() => changeRole('Спортсмен')}
                                 isActive={role === 'Спортсмен'}/>
                     </div>
-                    <Button position={"signup"}
-                            title={'Далее'}
-                            onClick={() => navigate('/FindTeam')}
-                            isActive={true}/>
+                    {checkAnswers(role, hasTeam)}
                 </div>
             </div>
         </section>

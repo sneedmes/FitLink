@@ -2,7 +2,7 @@ import React from 'react';
 import style from './Main.module.css'
 import {Button} from "../../Button/Button";
 import { useNavigate } from 'react-router-dom';
-import Header from "../Header/Header";
+import Header from "../../Header/Header";
 
 export const Main = () => {
     const navigate = useNavigate()
@@ -20,7 +20,7 @@ export const Main = () => {
 
     return (
         <section className={`${style.main}`}>
-            <Header/>
+            <Header position={'reg'}/>
             <div className={`${style.title}`}>
                 <h1>Главная</h1>
             </div>

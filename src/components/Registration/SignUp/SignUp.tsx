@@ -1,6 +1,6 @@
 import React from 'react';
 import style from './SignUp.module.css'
-import Header from "../Header/Header";
+import Header from "../../Header/Header";
 import {Button} from "../../Button/Button";
 import {useNavigate} from "react-router-dom";
 
@@ -8,7 +8,7 @@ export const SignUp = () => {
     const navigate = useNavigate()
     return (
         <section className={`${style.signup}`}>
-            <Header/>
+            <Header position={'reg'}/>
             <div className={`${style.title}`}>
                 <h1>Регистрация</h1>
             </div>

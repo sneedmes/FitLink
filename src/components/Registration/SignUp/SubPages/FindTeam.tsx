@@ -1,7 +1,7 @@
 import {useNavigate} from "react-router-dom";
 import React from "react";
 import style from "../SignUp.module.css";
-import Header from "../../Header/Header";
+import Header from "../../../Header/Header";
 import {Button} from "../../../Button/Button";
 
 export const FindTeam = () => {
@@ -9,7 +9,7 @@ export const FindTeam = () => {
 
     return (
         <section className={`${style.signup}`}>
-            <Header/>
+            <Header position={'reg'}/>
             <div className={`${style.title}`}>
                 <h1>Регистрация</h1>
             </div>
@@ -25,6 +25,7 @@ export const FindTeam = () => {
                                 title={'Далее'}
                                 onClick={() => navigate('/')}
                                 isActive={true}/>
+
                     </div>
                 </div>
             </div>
