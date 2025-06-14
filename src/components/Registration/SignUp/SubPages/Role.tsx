@@ -3,6 +3,7 @@ import React, {useState} from "react";
 import style from "../SignUp.module.css";
 import Header from "../../../Header/Header";
 import {Button} from "../../../Button/Button";
+import Title from "../../../Title/Title";
 
 export const Role = () => {
     const navigate = useNavigate()
@@ -22,7 +23,7 @@ export const Role = () => {
                         onClick={() => navigate('/FindTeam')}
                         isActive={true}/>
             </>
-        } else if(role === 'Тренер' && hasTeam === 'Нет') {
+        } else if (role === 'Тренер' && hasTeam === 'Нет') {
             return <>
                 <Button position={"signup"}
                         title={'Далее'}
@@ -40,12 +41,11 @@ export const Role = () => {
     }
 
     return (
-        <section className={`${style.signup}`}>
+        <>
             <Header position={'reg'}/>
-            <div className={`${style.title}`}>
-                <h1>Регистрация</h1>
-            </div>
-            <div className={`${style.data_container} ${style.role}`}>
+            <Title title={'Регистрация'}/>
+
+            <div className='content'>
                 <div className={`${style.role_form}`}>
                     <div className={`${style.changeData}`}>
                         <h3>Есть ли у вас команда, созданная внутри приложения?</h3>
@@ -72,6 +72,6 @@ export const Role = () => {
                     {checkAnswers(role, hasTeam)}
                 </div>
             </div>
-        </section>
+        </>
     );
 };

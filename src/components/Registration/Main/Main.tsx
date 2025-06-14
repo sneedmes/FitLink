@@ -1,8 +1,9 @@
 import React from 'react';
 import style from './Main.module.css'
 import {Button} from "../../Button/Button";
-import { useNavigate } from 'react-router-dom';
+import {useNavigate} from 'react-router-dom';
 import Header from "../../Header/Header";
+import Title from "../../Title/Title";
 
 export const Main = () => {
     const navigate = useNavigate()
@@ -19,13 +20,11 @@ export const Main = () => {
     ]
 
     return (
-        <section className={`${style.main}`}>
+        <>
             <Header position={'reg'}/>
-            <div className={`${style.title}`}>
-                <h1>Главная</h1>
-            </div>
-            <div className={`${style.info_container}`}>
+            <Title title={'Главная'}/>
 
+            <div className='content'>
                 <div className={`${style.info_main}`}>
                     {about.slice(0, 1).map((info) => (
                         <>
@@ -76,6 +75,6 @@ export const Main = () => {
                 </div>
 
             </div>
-        </section>
+        </>
     );
 };

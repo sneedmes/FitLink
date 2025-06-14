@@ -1,5 +1,4 @@
 import {Main} from "./Main/Main";
-import Header from "../Header/Header";
 import {SignUp} from "./SignUp/SignUp";
 import {Code} from "./SignUp/SubPages/Code";
 import {Role} from "./SignUp/SubPages/Role";
@@ -11,11 +10,9 @@ import LogIn from "./LogIn/LogIn";
 
 const Registration = () => {
     return (
-        <section className='registration'>
             <BrowserRouter>
                 <Routes>
                     <Route path="/" element={<Main/>}/>
-                    <Route path="Header" element={<Header position={'reg'}/>}/>
                     <Route path="SignUp" element={<SignUp/>}/>
                     <Route path="LogIn" element={<LogIn/>}/>
                     <Route path="Code" element={<Code/>}/>
@@ -25,7 +22,6 @@ const Registration = () => {
                     <Route path="CreateTeam" element={<CreateTeam/>}/>
                 </Routes>
             </BrowserRouter>
-        </section>
     );
 };
 

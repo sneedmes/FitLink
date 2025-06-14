@@ -3,18 +3,18 @@ import style from "../SignUp.module.css";
 import Header from "../../../Header/Header";
 import {Button} from "../../../Button/Button";
 import {useNavigate} from "react-router-dom";
+import Title from "../../../Title/Title";
 
 const CreateTeam = () => {
     const navigate = useNavigate()
 
     return (
-        <section className={`${style.signup}`}>
+        <>
             <Header position={'reg'}/>
-            <div className={`${style.title}`}>
-                <h1>Регистрация</h1>
-            </div>
-            <div className={`${style.data_container}`}>
-                <div className={`${style.signup_form}`}>
+            <Title title={'Регистрация'}/>
+
+            <div className='content'>
+                <div className={`${style.signup}`}>
                     <h3>Заполните все поля</h3>
                     <form action="" method="">
                         <label htmlFor="name">Название команды</label>
@@ -26,8 +26,8 @@ const CreateTeam = () => {
                         <label htmlFor="addMember">Добавить участника/ов (введите имя пользователя)</label>
                         <input className={`${style.add_input}`} type="text" id="addMember" name="addMember"/>
 
-                        <label htmlFor="logo">Загрузите логотип (необязательно)</label>
-                        <input className={`${style.img_input}`} type="image" id="logo" name="team_logo" alt='logo'/>
+                        <label htmlFor="logo" className={style.load_img}>Загрузите логотип (необязательно)</label>
+                        <input className={`${style.img_input}`} type="file" id="logo" name="team_logo" alt='logo'/>
 
                         <label htmlFor="sport">Выберите вид спорта</label>
                         <input className={`${style.sport_input}`} type="text" placeholder="Search"/>
@@ -43,7 +43,7 @@ const CreateTeam = () => {
                     </form>
                 </div>
             </div>
-        </section>
+        </>
     );
 };
 

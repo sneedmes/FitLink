@@ -11,7 +11,7 @@ const Header = ({position}: HeaderProps) => {
     const navigate = useNavigate()
 
     return (
-        <header>
+        <header className='header'>
             <section className={`${style.container}`}>
                 <div>
                     <img src="logo.png" alt=""/>
@@ -37,7 +37,7 @@ const Header = ({position}: HeaderProps) => {
                         <div className={`${style.nav_coach}`}>
                                 <Button position={'header'}
                                         title={"События"}
-                                        onClick={() => navigate('/Events')}
+                                        onClick={() => navigate('/')}
                                         isActive={false}/>
                                 <Button position={'header'}
                                         title={"Доска"}

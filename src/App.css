@@ -65,6 +65,62 @@ button{
   --border-radius: 6px;
 }
 
-.registration, .coach {
+.title{
+  background-color: white;
+  color: black;
+  text-align: center;
+
+  padding: 20px;
+}
+
+.app{
+  display: grid;
+
+  grid-template-areas:
+  "header title"
+  "header content";
+  grid-template-rows: 80px 1fr;
+  grid-template-columns: 230px 1fr;
+}
+
+.header {
+  grid-area: header;
+}
+.title {
+  grid-area: title;
+}
+.content {
+  grid-area: content;
+
+  margin: 30px 50px;
+}
+
+input{
+  box-sizing: border-box;
+  border: none;
+  border-bottom: 2px solid black;
+  background-color: var(--color-back);
+  margin: 5px 0 30px 0;
+  height: 40px;
+  font-size: 16px;
+  padding: 0;
+}
+
+input:focus{
+  outline: none;
+}
+
+input:invalid{
+  outline: none;
+  border-bottom: 2px solid var(--color-passive);
+}
+
+label{
+  font-size: 18px;
+  font-weight: 700;
+}
+
+form{
   display: flex;
+  flex-direction: column;
 }

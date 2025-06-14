@@ -3,17 +3,18 @@ import style from './SignUp.module.css'
 import Header from "../../Header/Header";
 import {Button} from "../../Button/Button";
 import {useNavigate} from "react-router-dom";
+import Title from "../../Title/Title";
 
 export const SignUp = () => {
     const navigate = useNavigate()
     return (
-        <section className={`${style.signup}`}>
+        <>
             <Header position={'reg'}/>
-            <div className={`${style.title}`}>
-                <h1>Регистрация</h1>
-            </div>
-            <div className={`${style.data_container}`}>
-                <div className={`${style.signup_form}`}>
+            <Title title={'Регистрация'}/>
+
+            <div className='content'>
+
+                <div className={`${style.signup}`}>
                     <h3>Введите свои данные</h3>
                     <form action="" method="">
                         <label htmlFor="name">Имя</label>
@@ -28,8 +29,8 @@ export const SignUp = () => {
                         <label htmlFor="name">Дата рождения</label>
                         <input type="date" id="dateOfBirth" name="user_dateOfBirth"/>
 
-                        <div className={`${style.signup_form_span}`}>
-                            <div className={`${style.signup_form_input}`}>
+                        <div className={`${style.form_span}`}>
+                            <div className={`${style.form_input}`}>
                                 <label htmlFor="name">Почта</label>
                                 <input type="email" id="email" name="user_email"/>
                             </div>
@@ -41,7 +42,9 @@ export const SignUp = () => {
                         </div>
                     </form>
                 </div>
+
             </div>
-        </section>
+
+        </>
     );
 };

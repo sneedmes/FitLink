@@ -1,33 +1,18 @@
-import React, { useContext } from 'react';
-import { EventContext } from './EventContext';
-import { useNavigate } from 'react-router-dom';
-import Header from "../../Header/Header";
-import style from './Events.module.css';
+import React from 'react';
+import Header from '../../Header/Header';
+import EventInterface from './EventInterface';
+import { SingleEvent } from '../Coach';
+import Title from "../../Title/Title";
 
-const Events = () => {
-    const navigate = useNavigate();
-    const { events } = useContext(EventContext);
-
+const Events = ({ events }: { events: SingleEvent[] }) => {
     return (
-        <section className={style.events}>
-            <Header position={'coach'}/>
-            <div className={style.title}>
-                <h1>Мероприятия</h1>
-                <button onClick={() => navigate('/create-event')}>
-                    Создать мероприятие
-                </button>
+        <>
+            <Header position="coach" />
+            <Title title={'События'}/>
+            <div className='content'>
+                <EventInterface events={events}/>
             </div>
-            <div className={style.events_container}>
-                {events.map(event => (
-                    <div key={event.id} className={style.event}>
-                        <img src={event.img} alt={event.title}/>
-                        <h2>{event.title}</h2>
-                        <p>{event.date}</p>
-                        {event.time && <p>{event.time}</p>}
-                    </div>
-                ))}
-            </div>
-        </section>
+        </>
     );
 };
 

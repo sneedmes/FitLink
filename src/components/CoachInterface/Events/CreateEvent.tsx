@@ -1,68 +1,90 @@
-import React, { useState, useContext } from 'react';
-import { EventContext } from './EventContext';
-import { useNavigate } from 'react-router-dom';
-import Header from "../../Header/Header";
+import React, { useState } from 'react';
 import style from './Events.module.css';
+import Header from '../../Header/Header';
+import { useNavigate } from 'react-router-dom';
+import { SingleEvent } from '../Coach';
+import {Button} from "../../Button/Button";
+import Title from "../../Title/Title";
 
-const CreateEvent = () => {
+type Props = {
+    setEvents: React.Dispatch<React.SetStateAction<SingleEvent[]>>;
+};
+
+const CreateEvent = ({ setEvents }: Props) => {
+    const [title, setTitle] = useState('');
+    const [desc, setDesc] = useState('');
+    const [date, setDate] = useState('');
+    const [time, setTime] = useState('');
+    const [img, setImg] = useState<File | null>(null);
     const navigate = useNavigate();
-    const { addEvent } = useContext(EventContext);
-    const [formData, setFormData] = useState({
-        title: '',
-        date: '',
-        time: '',
-        img: 'logo.png'
-    });
 
-    const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-        const { name, value } = e.target;
-        setFormData(prev => ({ ...prev, [name]: value }));
-    };
+    const handleAdd = () => {
+        const newEvent: SingleEvent = {
+            id: Date.now(),
+            title,
+            desc,
+            date,
+            time,
+            img: img ? URL.createObjectURL(img) : '', // если нужно отображать
+        };
 
-    const handleSubmit = (e: React.FormEvent) => {
-        e.preventDefault();
-        addEvent(formData);
+        setEvents(prev => [...prev, newEvent]);
         navigate('/');
     };
 
     return (
-        <section className={style.events}>
-            <Header position={'coach'}/>
-            <div className={style.title}>
-                <h1>Создать мероприятие</h1>
-            </div>
+        <>
+            <Header position="coach" />
+            <Title title={'Создать событие'}/>
 
-            <form onSubmit={handleSubmit} className={style.eventForm}>
-                <input
-                    type="text"
-                    name="title"
-                    placeholder="Название"
-                    value={formData.title}
-                    onChange={handleChange}
-                    required
-                />
-                <input
-                    type="date"
-                    name="date"
-                    value={formData.date}
-                    onChange={handleChange}
-                    required
-                />
-                <input
-                    type="time"
-                    name="time"
-                    placeholder="Время (необязательно)"
-                    value={formData.time}
-                    onChange={handleChange}
-                />
-                <div className={style.buttons}>
-                    <button type="submit">Создать</button>
-                    <button type="button" onClick={() => navigate('/')}>
-                        Отмена
-                    </button>
+            <div className='content'>
+                <div className={style.add_event}>
+                    <h2>Заполните все поля</h2>
+                    <input
+                        type="text"
+                        name="title"
+                        value={title}
+                        onChange={(e) => setTitle(e.target.value)}
+                        placeholder="Название"
+                    />
+                    <input
+                        type="text"
+                        name="description"
+                        value={desc}
+                        onChange={(e) => setDesc(e.target.value)}
+                        placeholder="Описание"
+                    />
+                    <input
+                        type="date"
+                        name="date"
+                        value={date}
+                        onChange={(e) => setDate(e.target.value)}
+                    />
+                    <input
+                        type="time"
+                        name="time"
+                        value={time}
+                        onChange={(e) => setTime(e.target.value)}
+                        placeholder="Время (необязательно)"
+                    />
+                    <input
+                        type="file"
+                        name="image"
+                        onChange={(e) => {
+                            if (e.target.files && e.target.files[0]) {
+                                setImg(e.target.files[0]);
+                            }
+                        }}
+                    />
+                    <Button
+                        onClick={handleAdd}
+                        title={'Добавить'}
+                        isActive={true}
+                        position={'events'}
+                    />
                 </div>
-            </form>
-        </section>
+            </div>
+        </>
     );
 };
 

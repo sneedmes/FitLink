@@ -24,7 +24,7 @@ export const Button=({position, title, onClick, isActive}:ButtonProps)=>{
                         <h2>{title}</h2>
                     </button>
             }
-            {['signup', 'team', 'login'].includes(position) &&
+            {['signup', 'team', 'login', 'events'].includes(position) &&
                 <button
                     onClick={onClick}
                     className={`${style.signup}`}>

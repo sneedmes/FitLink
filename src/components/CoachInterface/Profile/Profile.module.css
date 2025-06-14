@@ -1,11 +1,13 @@
-.login h3{
+.profile h3{
     margin-bottom: 40px;
     text-align: center;
     font-weight: 700;
 }
 
-.login form{
+.form_span{
+    display: flex;
     align-items: center;
+    justify-content: space-between;
 }
 
 .form_input{

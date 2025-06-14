@@ -3,20 +3,20 @@ import style from "../SignUp.module.css";
 import Header from "../../../Header/Header";
 import {Button} from "../../../Button/Button";
 import React from "react";
+import Title from "../../../Title/Title";
 
 export const Code = () => {
     const navigate = useNavigate()
     return (
-        <section className={`${style.signup}`}>
+        <>
             <Header position={'reg'}/>
-            <div className={`${style.title}`}>
-                <h1>Регистрация</h1>
-            </div>
-            <div className={`${style.data_container} ${style.code}`}>
-                <div className={`${style.signup_form}`}>
+            <Title title={'Регистрация'}/>
+
+            <div className='content'>
+                <div className={`${style.code}`}>
                     <h3>Придумайте пароль для входа</h3>
-                    <form action="" method="" className={`${style.code_form}`}>
-                        <input type="password" id="password-1" name="user_password"/>
+                    <form action="" method="">
+                        <input type="password" id="password-1" name="user_password" placeholder='Новый пароль'/>
                         <input type="password" id="password-2" name="user_password" placeholder='Повторите пароль'/>
                         <Button position={"signup"}
                                 title={'Далее'}
@@ -25,6 +25,6 @@ export const Code = () => {
                     </form>
                 </div>
             </div>
-        </section>
+        </>
     );
 };
