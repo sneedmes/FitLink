@@ -1,9 +1,9 @@
 import {useNavigate} from "react-router-dom";
 import style from "../SignUp.module.css";
-import Header from "../../../Header/Header";
-import {Button} from "../../../Button/Button";
+import Header from "../../../components/Header/Header";
+import {Button} from "../../../components/Button/Button";
 import React from "react";
-import Title from "../../../Title/Title";
+import Title from "../../../components/Title/Title";
 
 export const Code = () => {
     const navigate = useNavigate()

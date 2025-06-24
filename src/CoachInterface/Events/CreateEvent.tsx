@@ -1,10 +1,10 @@
 import React, { useState } from 'react';
 import style from './Events.module.css';
-import Header from '../../Header/Header';
+import Header from '../../components/Header/Header';
 import { useNavigate } from 'react-router-dom';
 import { SingleEvent } from '../Coach';
-import {Button} from "../../Button/Button";
-import Title from "../../Title/Title";
+import {Button} from "../../components/Button/Button";
+import Title from "../../components/Title/Title";
 
 type Props = {
     setEvents: React.Dispatch<React.SetStateAction<SingleEvent[]>>;
@@ -15,7 +15,6 @@ const CreateEvent = ({ setEvents }: Props) => {
     const [desc, setDesc] = useState('');
     const [date, setDate] = useState('');
     const [time, setTime] = useState('');
-    const [img, setImg] = useState<File | null>(null);
     const navigate = useNavigate();
 
     const handleAdd = () => {
@@ -25,7 +24,7 @@ const CreateEvent = ({ setEvents }: Props) => {
             desc,
             date,
             time,
-            img: img ? URL.createObjectURL(img) : '', // если нужно отображать
+            members: 0
         };
 
         setEvents(prev => [...prev, newEvent]);
@@ -66,15 +65,6 @@ const CreateEvent = ({ setEvents }: Props) => {
                         value={time}
                         onChange={(e) => setTime(e.target.value)}
                         placeholder="Время (необязательно)"
-                    />
-                    <input
-                        type="file"
-                        name="image"
-                        onChange={(e) => {
-                            if (e.target.files && e.target.files[0]) {
-                                setImg(e.target.files[0]);
-                            }
-                        }}
                     />
                     <Button
                         onClick={handleAdd}

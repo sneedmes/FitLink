@@ -1,6 +1,6 @@
 import './App.css';
-import Registration from "./components/Registration/Registration";
-import Coach from "./components/CoachInterface/Coach";
+import Registration from "./Registration/Registration";
+import Coach from "./CoachInterface/Coach";
 
 function App() {
   document.title="FitLink"

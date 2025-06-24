@@ -38,6 +38,20 @@ export const Button=({position, title, onClick, isActive}:ButtonProps)=>{
                     <h4>{title}</h4>
                 </button>
             }
+            {position === 'members' &&
+                <button
+                    onClick={onClick}
+                    className={isActive ? `${style.joined}` : `${style.notJoined}`}>
+                    <h5>{title}</h5>
+                </button>
+            }
+            {['edit', 'delete'].includes(position) &&
+                <button
+                    onClick={onClick}
+                    className={style.edit}>
+                    <p>{title}</p>
+                </button>
+            }
         </>
     )
 }

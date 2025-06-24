@@ -1,57 +1,83 @@
-.header{
+/* Общие стили для кнопок */
+.main,
+.signup,
+.signup_role,
+.joined,
+.notJoined,
+.edit {
+    border-radius: var(--border-radius);
+    border: black solid 2px;
+    text-align: center;
+    color: black;
+}
+
+button:hover,
+.header:hover,
+.main:hover,
+.signup:hover,
+.signup_role:hover,
+.joined:hover,
+.notJoined:hover,
+.edit:hover {
+    cursor: pointer;
+    opacity: 90%;
+}
+
+/* Заголовок */
+.header {
     color: white;
 }
 
-.header:hover{
-    cursor: pointer;
-}
-
-.main{
-    border-radius: var(--border-radius);
-    border: black solid 3px;
+/* Главная кнопка */
+.main {
+    border-width: 3px;
     background-color: var(--color-active);
-    color: black;
-    text-align: center;
     padding: 10px;
     width: 700px;
     height: 60px;
 }
 
-.main:hover{
-    cursor: pointer;
-    opacity: 90%;
+/* Кнопка регистрации */
+.signup,
+.signup_role {
+    width: 250px;
+    height: 40px;
+    border-width: 3px;
 }
 
-.signup{
-    border-radius: var(--border-radius);
-    border: black solid 3px;
+/* Цвета ролей */
+.signup {
     background-color: var(--color-active);
-    color: black;
-    text-align: center;
-    width: 250px;
-    height: 40px;
 }
 
-.signup:hover{
-    cursor: pointer;
-    opacity: 90%;
-}
-
-.signup_role{
-    border-radius: var(--border-radius);
-    border: black solid 3px;
+.signup_role {
     background-color: var(--color-passive);
-    color: black;
-    text-align: center;
-    width: 250px;
-    height: 40px;
 }
 
-.signup_role:hover{
-    cursor: pointer;
-    opacity: 90%;
-}
-
-.signup_role_active{
+.signup_role_active {
     background-color: var(--color-secondary);
+}
+
+/* Участие в событии */
+.joined,
+.notJoined {
+    width: 170px;
+    height: 40px;
+    margin-bottom: 10px;
+}
+
+.joined {
+    background-color: var(--color-active);
+}
+
+.notJoined {
+    background-color: var(--color-passive);
+}
+
+/* Кнопка редактирования */
+.edit {
+    width: 10rem;
+    height: 30px;
+    background-color: var(--color-passive);
+    margin-left: 10px;
 }

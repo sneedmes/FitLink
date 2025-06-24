@@ -1,9 +1,9 @@
 import React from 'react';
 import style from './LogIn.module.css'
-import {Button} from "../../Button/Button";
-import Header from "../../Header/Header";
+import {Button} from "../../components/Button/Button";
+import Header from "../../components/Header/Header";
 import {useNavigate} from "react-router-dom";
-import Title from "../../Title/Title";
+import Title from "../../components/Title/Title";
 
 const LogIn = () => {
     const navigate = useNavigate()

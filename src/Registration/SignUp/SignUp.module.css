@@ -93,7 +93,7 @@
 }
 
 .add_input{
-    background-image: url("../../../assets/materials/add.png")
+    background-image: url("../../assets/materials/add.png")
 }
 
 .img_input[type=file]{
@@ -102,7 +102,7 @@
 
 .load_img{
     background-position: 50% center;
-    background-image: url("../../../assets/materials/img.png");
+    background-image: url("../../assets/materials/img.png");
     background-repeat: no-repeat;
     height: 80px;
     border-bottom: 2px solid black;

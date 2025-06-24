@@ -1,9 +1,9 @@
 import React from 'react';
 import style from './SignUp.module.css'
-import Header from "../../Header/Header";
-import {Button} from "../../Button/Button";
+import Header from "../../components/Header/Header";
+import {Button} from "../../components/Button/Button";
 import {useNavigate} from "react-router-dom";
-import Title from "../../Title/Title";
+import Title from "../../components/Title/Title";
 
 export const SignUp = () => {
     const navigate = useNavigate()

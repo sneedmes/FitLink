@@ -1,0 +1,229 @@
+.upper{
+    margin-bottom: 20px;
+    display: flex;
+    gap: 20px;
+}
+
+.workouts_container{
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    gap: 20px;
+    margin-bottom: 30px;
+}
+
+.workout{
+    background-color: white;
+    padding: 20px 35px;
+    border-radius: 6px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.workout h1{
+    color: var(--color-main);
+    margin-bottom: 10px;
+}
+
+.workout h3{
+    margin-bottom: 10px;
+}
+
+.add_workout, .edit_workout, .details{
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+    align-items: center;
+}
+
+.add_workout input, .edit_workout input{
+    width: 100%;
+}
+
+.error {
+    color: red;
+    margin-top: 4px;
+    font-size: 14px;
+}
+
+.exercise_input{
+    display: flex;
+    flex-direction: column;
+    gap: 35px;
+}
+
+.exercise_input img{
+    margin-bottom: 10px;
+}
+
+.checkbox_container {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin: 15px 0;
+}
+
+.checkbox_label {
+    position: relative;
+    display: inline-block;
+    width: 50px;
+    height: 24px;
+}
+
+.checkbox_input {
+    opacity: 0;
+    width: 0;
+    height: 0;
+}
+
+.checkbox_slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: var(--color-passive);
+    transition: .4s;
+    border-radius: 24px;
+}
+
+.checkbox_slider:before {
+    position: absolute;
+    content: "";
+    height: 16px;
+    width: 16px;
+    left: 4px;
+    bottom: 4px;
+    background-color: white;
+    transition: .4s;
+    border-radius: 50%;
+}
+
+.checkbox_input:checked + .checkbox_slider {
+    background-color: var(--color-main);
+}
+
+.checkbox_input:checked + .checkbox_slider:before {
+    transform: translateX(26px);
+}
+
+.checkbox_text {
+    font-size: 16px;
+    color: black;
+}
+
+/* Стили для кнопки удаления */
+.remove_button {
+    background-color: var(--color-passive);
+    color: black;
+    border: none;
+    border-radius: 4px;
+    padding: 6px 12px;
+    cursor: pointer;
+    font-size: 14px;
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+.remove_button:hover {
+    background-color: var(--color-passive);
+    transform: translateY(-1px);
+}
+
+.remove_button:active {
+    transform: translateY(0);
+}
+
+.itemsList {
+    display: flex;
+    gap: 20px;
+    margin-top: 15px;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.exerciseCard {
+    background: white;
+    border-radius: 12px;
+    width: 35vh;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.exerciseCard:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+}
+
+.cardContent {
+    padding: 16px;
+}
+
+.exerciseTitle {
+    margin: 0 0 12px 0;
+    color: #333;
+    font-size: 1.1rem;
+    text-align: center;
+}
+
+.imageContainer {
+    width: 100%;
+    height: 180px;
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+.exerciseImage {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.3s ease;
+}
+
+.exerciseCard:hover .exerciseImage {
+    transform: scale(1.05);
+}
+
+/* Modal */
+
+.modalImageContainer {
+    position: relative;
+    max-width: 90vw;
+    max-height: 90vh;
+}
+
+.modalImage {
+    max-width: 100%;
+    max-height: 80vh;
+    display: block;
+    margin: 0 auto;
+}
+
+.closeButton {
+    position: absolute;
+    top: -40px;
+    right: -55px;
+    background: none;
+    border: none;
+    font-size: 2rem;
+    color: white;
+    cursor: pointer;
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.imageContainer {
+    cursor: pointer;
+    transition: transform 0.2s;
+}
+
+.imageContainer:hover {
+    transform: scale(1.02);
+}

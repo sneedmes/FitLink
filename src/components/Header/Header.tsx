@@ -2,6 +2,7 @@ import style from "./Header.module.css"
 import {Button} from "../Button/Button";
 import {useNavigate} from 'react-router-dom';
 import React from "react";
+import logo from '../../assets/logo.png';
 
 type HeaderProps = {
     position: string
@@ -14,7 +15,7 @@ const Header = ({position}: HeaderProps) => {
         <header className='header'>
             <section className={`${style.container}`}>
                 <div>
-                    <img src="logo.png" alt=""/>
+                    <img src={logo} alt=""/>
                 </div>
                 {position === 'reg' ?
                     <div className={`${style.nav_reg}`}>
@@ -41,7 +42,7 @@ const Header = ({position}: HeaderProps) => {
                                         isActive={false}/>
                                 <Button position={'header'}
                                         title={"Доска"}
-                                        onClick={() => navigate('/Board')}
+                                        onClick={() => navigate('/TacticalBoard')}
                                         isActive={false}/>
                                 <Button position={'header'}
                                         title={"Игроки"}

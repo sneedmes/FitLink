@@ -1,9 +1,9 @@
 import React from 'react';
 import style from './Main.module.css'
-import {Button} from "../../Button/Button";
+import {Button} from "../../components/Button/Button";
 import {useNavigate} from 'react-router-dom';
-import Header from "../../Header/Header";
-import Title from "../../Title/Title";
+import Header from "../../components/Header/Header";
+import Title from "../../components/Title/Title";
 
 export const Main = () => {
     const navigate = useNavigate()

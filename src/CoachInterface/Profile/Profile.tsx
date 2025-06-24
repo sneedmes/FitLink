@@ -1,9 +1,10 @@
 import React, { useState } from 'react';
 import style from "./Profile.module.css";
-import Header from "../../Header/Header";
-import { Button } from "../../Button/Button";
+import Header from "../../components/Header/Header";
+import { Button } from "../../components/Button/Button";
 import { useNavigate } from "react-router-dom";
-import Title from "../../Title/Title";
+import Title from "../../components/Title/Title";
+import Toast from "../../components/Toast/Toast";
 
 type ProfileProps = {
     id: number;
@@ -12,12 +13,10 @@ type ProfileProps = {
     fatherName: string;
     dateOfBirth: string;
     mail: string;
-    onUpdate: (updatedUser: any) => void; // новый проп
+    onUpdate: (updatedUser: any) => void;
 };
 
 const Profile = ({ id, name, surname, fatherName, dateOfBirth, mail, onUpdate }: ProfileProps) => {
-    const navigate = useNavigate();
-
     const [profileData, setProfileData] = useState({
         name,
         surname,
@@ -26,14 +25,32 @@ const Profile = ({ id, name, surname, fatherName, dateOfBirth, mail, onUpdate }:
         mail
     });
 
+    const [toast, setToast] = useState<{ message: string, type: 'success' | 'error' } | null>(null);
+
     const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
         const { name, value } = e.target;
         setProfileData(prev => ({ ...prev, [name]: value }));
     };
 
+    const validateData = () => {
+        if (!profileData.name.trim()) return 'Имя не может быть пустым';
+        if (!profileData.surname.trim()) return 'Фамилия не может быть пустой';
+        if (!profileData.mail.trim()) return 'Почта не может быть пустой';
+        if (!profileData.mail.includes('@')) return 'Некорректная почта';
+        return null;
+    };
+
     const handleSave = () => {
+        const error = validateData();
+        if (error) {
+            setToast({ message: error, type: 'error' });
+            setTimeout(() => setToast(null), 3000);
+            return;
+        }
+
         onUpdate({ id, ...profileData });
-        navigate('/Profile');
+        setToast({ message: 'Данные сохранены!', type: 'success' });
+        setTimeout(() => setToast(null), 3000);
     };
 
     return (
@@ -41,7 +58,9 @@ const Profile = ({ id, name, surname, fatherName, dateOfBirth, mail, onUpdate }:
             <Header position="coach" />
             <Title title={'Профиль'} />
 
-            <div className='content'>
+            <div className='content' style={{ position: 'relative' }}>
+                {toast && <Toast message={toast.message} type={toast.type} />}
+
                 <div className={`${style.profile}`}>
                     <h3>Данные пользователя</h3>
                     <form onSubmit={(e) => e.preventDefault()}>

@@ -4,6 +4,12 @@ import React, {useState} from 'react';
 import Events from './Events/Events';
 import CreateEvent from './Events/CreateEvent';
 import Profile from "./Profile/Profile";
+import TacticalBoard from "./TacticalBoard/TacticalBoard";
+import EditEvent from "./Events/EditEvent";
+import Workout from "./Workouts/Workout";
+import EditWorkout from "./Workouts/EditWorkout";
+import CreateWorkout from "./Workouts/CreateWorkout";
+import WorkoutDetails from "./Workouts/WorkoutDetail";
 
 export type SingleEvent = {
     id: number;
@@ -11,8 +17,21 @@ export type SingleEvent = {
     desc: string,
     time: string;
     date: string;
-    img: string;
+    members: number;
 };
+
+export type ExerciseItem = {
+    exercise: string;
+    image: string; // или можешь использовать `File` если это локальная картинка
+};
+
+export type SingleWorkout = {
+    id: number;
+    title: string;
+    privat: boolean;
+    items: ExerciseItem[]; // массив упражнений с картинками
+};
+
 
 const EventsWrapper = () => {
     const [events, setEvents] = useState<SingleEvent[]>([
@@ -22,7 +41,7 @@ const EventsWrapper = () => {
             desc: 'В кипе',
             time: '11:00',
             date: '2025-02-21',
-            img: 'logo.png',
+            members: 0
         },
         {
             id: 2,
@@ -30,7 +49,7 @@ const EventsWrapper = () => {
             desc: 'Не опаздывать!',
             time: '11:00',
             date: '2025-02-21',
-            img: 'logo.png',
+            members: 0
         },
         {
             id: 3,
@@ -38,7 +57,7 @@ const EventsWrapper = () => {
             desc: 'На две недели',
             time: '11:00',
             date: '2025-02-21',
-            img: 'logo.png',
+            members: 0
         }
     ]);
 
@@ -51,6 +70,18 @@ const EventsWrapper = () => {
         mail: "sus@mail.com"
     });
 
+    const [workouts, setWorkouts] = useState<SingleWorkout[]>([
+        {
+            id: 1,
+            title: "Full Body Training",
+            privat: false,
+            items: [
+                { exercise: "Push-ups", image: "pushups.jpg" },
+                { exercise: "Squats", image: "squats.jpg" }
+            ]
+        }
+    ])
+
     const handleUpdateProfile = (updatedProfile: typeof profile) => {
         setProfile(updatedProfile);
     };
@@ -59,16 +90,31 @@ const EventsWrapper = () => {
         <BrowserRouter>
             <Routes>
                 <Route path="/Main" element={<Main/>}/>
+
                 <Route path="/" element={<Events events={events}/>}/>
                 <Route path="/CreateEvent" element={<CreateEvent setEvents={setEvents}/>}/>
+                <Route path="/edit-event/:id" element={<EditEvent events={events} setEvents={setEvents} />}/>
+
                 <Route path="/Profile" element={<Profile id={profile.id}
                                                          name={profile.name}
                                                          surname={profile.surname}
                                                          fatherName={profile.fatherName}
                                                          dateOfBirth={profile.dateOfBirth}
                                                          mail={profile.mail}
-                                                         onUpdate={handleUpdateProfile}/>}
+                                                         onUpdate={handleUpdateProfile}/>}/>
+
+                <Route path="/TacticalBoard" element={<TacticalBoard/>}/>
+
+                <Route path="/workouts" element={<Workout workouts={workouts}/>}/>
+                <Route path="/CreateWorkout" element={<CreateWorkout setWorkout={setWorkouts}/>}/>
+                <Route path="/edit-workout/:id" element={<EditWorkout workouts={workouts} setWorkout={setWorkouts} />}/>
+                <Route
+                    path="/workout/:id"
+                    element={<WorkoutDetails workouts={workouts} setWorkout={setWorkouts} />}
                 />
+
+
+
             </Routes>
         </BrowserRouter>
     );

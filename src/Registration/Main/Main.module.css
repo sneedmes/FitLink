@@ -10,7 +10,7 @@
 }
 
 .info_coach li, .info_athlete li{
-    list-style: url("../../../assets/materials/list.png");
+    list-style: url("../../assets/materials/list.png");
     vertical-align: top;
 }
 
