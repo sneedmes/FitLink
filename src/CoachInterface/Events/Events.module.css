@@ -30,6 +30,9 @@
 }
 
 .members{
+    display: flex;
+    flex-direction: row;
+    gap: 15px;
     margin-top: 20px;
 }
 

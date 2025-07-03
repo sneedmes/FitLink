@@ -1,8 +1,8 @@
 import React, {useState} from 'react';
 import {useNavigate} from 'react-router-dom';
-import style from './Events.module.css';
-import {SingleEvent} from '../Coach';
-import {Button} from "../../components/Button/Button";
+import style from '../Events.module.css';
+import {SingleEvent} from '../../Coach';
+import {Button} from "../../../components/Button/Button";
 
 type EventType = {
     events: SingleEvent[];

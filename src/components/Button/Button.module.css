@@ -79,5 +79,10 @@ button:hover,
     width: 10rem;
     height: 30px;
     background-color: var(--color-passive);
-    margin-left: 10px;
+}
+
+/* Кнопка перейти к игроку */
+.player {
+    cursor: pointer;
+    font-size: 16px;
 }

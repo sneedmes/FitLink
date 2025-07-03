@@ -1,0 +1,68 @@
+.overlay {
+    position: fixed;
+    top: 0;
+    left: 230px;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.7);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 1000;
+}
+
+.modal {
+    background: #f5f5f5;
+    border-radius: 10px;
+    padding: 20px;
+    width: 700px;
+    position: relative;
+}
+
+.backButton {
+    position: absolute;
+    top: 16px;
+    left: 16px;
+    font-size: 24px;
+    background: none;
+    border: none;
+    cursor: pointer;
+}
+
+.title {
+    text-align: center;
+    font-size: 20px;
+    font-weight: bold;
+    margin-bottom: 20px;
+}
+
+.grid {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    gap: 10px;
+    text-align: center;
+}
+
+.column {
+    padding-top: 10px;
+}
+
+.dayLabel {
+    font-weight: bold;
+    font-size: 18px;
+}
+
+.date {
+    font-size: 14px;
+    color: #888;
+    margin-top: 2px;
+}
+
+.timeInput {
+    margin-top: 10px;
+    font-size: 14px;
+    padding: 4px 6px;
+    border-radius: 8px;
+    border: 1px solid #ccc;
+    background: #fff;
+}

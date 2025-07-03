@@ -1,7 +1,7 @@
 import React from 'react';
 import Header from '../../components/Header/Header';
 import Title from "../../components/Title/Title";
-import EventInterface from './EventInterface';
+import EventInterface from './EventsInfo/EventInterface';
 import { SingleEvent } from '../Coach';
 
 const Events = ({ events }: { events: SingleEvent[] }) => {

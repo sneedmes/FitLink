@@ -1,7 +1,7 @@
 import React from 'react';
 import Header from "../../components/Header/Header";
 import Title from "../../components/Title/Title";
-import WorkoutsEnterface from "./WorkoutsEnterface";
+import WorkoutsEnterface from "./WorkoutInfo/WorkoutsEnterface";
 import { SingleWorkout } from '../Coach';
 
 const Workout = ({ workouts }: { workouts: SingleWorkout[] }) => {

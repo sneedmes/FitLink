@@ -36,6 +36,11 @@
     align-items: center;
 }
 
+.buttons{
+    display: flex;
+    gap: 30px;
+}
+
 .add_workout input, .edit_workout input{
     width: 100%;
 }

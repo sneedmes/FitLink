@@ -45,8 +45,8 @@ const Header = ({position}: HeaderProps) => {
                                         onClick={() => navigate('/TacticalBoard')}
                                         isActive={false}/>
                                 <Button position={'header'}
-                                        title={"Игроки"}
-                                        onClick={() => navigate('/Players')}
+                                        title={"Команда"}
+                                        onClick={() => navigate('/Teams')}
                                         isActive={false}/>
                                 <Button position={'header'}
                                         title={"Тренировки"}

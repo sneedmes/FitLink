@@ -1,10 +1,10 @@
 import React, { useState } from 'react';
-import style from './Events.module.css';
-import Header from '../../components/Header/Header';
+import style from '../Events.module.css';
+import Header from '../../../components/Header/Header';
 import { useNavigate } from 'react-router-dom';
-import { SingleEvent } from '../Coach';
-import {Button} from "../../components/Button/Button";
-import Title from "../../components/Title/Title";
+import { SingleEvent } from '../../Coach';
+import {Button} from "../../../components/Button/Button";
+import Title from "../../../components/Title/Title";
 
 type Props = {
     setEvents: React.Dispatch<React.SetStateAction<SingleEvent[]>>;

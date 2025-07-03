@@ -1,10 +1,10 @@
 import React, { useState } from 'react';
 import { useNavigate, useParams } from 'react-router-dom';
-import style from './Workout.module.css';
-import { SingleWorkout, ExerciseItem } from '../Coach';
-import { Button } from '../../components/Button/Button';
-import Header from "../../components/Header/Header";
-import Title from "../../components/Title/Title";
+import style from '../Workout.module.css';
+import { SingleWorkout, ExerciseItem } from '../../Coach';
+import { Button } from '../../../components/Button/Button';
+import Header from "../../../components/Header/Header";
+import Title from "../../../components/Title/Title";
 
 type EditWorkoutProps = {
     workouts: SingleWorkout[];

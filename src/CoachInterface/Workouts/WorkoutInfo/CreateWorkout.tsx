@@ -1,10 +1,10 @@
 import React, { useState } from 'react';
-import Header from "../../components/Header/Header";
-import Title from "../../components/Title/Title";
-import style from "./Workout.module.css";
-import { Button } from "../../components/Button/Button";
+import Header from "../../../components/Header/Header";
+import Title from "../../../components/Title/Title";
+import style from "../Workout.module.css";
+import { Button } from "../../../components/Button/Button";
 import { useNavigate } from "react-router-dom";
-import { SingleWorkout, ExerciseItem } from "../Coach";
+import { SingleWorkout, ExerciseItem } from "../../Coach";
 
 type Props = {
     setWorkout: React.Dispatch<React.SetStateAction<SingleWorkout[]>>;

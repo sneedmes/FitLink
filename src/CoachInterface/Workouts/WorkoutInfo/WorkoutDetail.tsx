@@ -1,11 +1,11 @@
 import React, { useState } from 'react';
 import { useNavigate, useParams } from 'react-router-dom';
-import { SingleWorkout } from '../Coach';
-import Header from '../../components/Header/Header';
-import Title from '../../components/Title/Title';
-import { Button } from '../../components/Button/Button';
-import style from './Workout.module.css';
-import Modal from '../../components/Modal/Modal'; // Предполагается, что у вас есть компонент Modal
+import { SingleWorkout } from '../../Coach';
+import Header from '../../../components/Header/Header';
+import Title from '../../../components/Title/Title';
+import { Button } from '../../../components/Button/Button';
+import style from '../Workout.module.css';
+import Modal from '../../../components/Modal/Modal'; // Предполагается, что у вас есть компонент Modal
 
 type WorkoutDetailsProps = {
     workouts: SingleWorkout[];

@@ -1,8 +1,9 @@
-import React from 'react';
-import { SingleWorkout } from "../Coach";
-import { Button } from "../../components/Button/Button";
+import React, {useState} from 'react';
+import { SingleWorkout } from "../../Coach";
+import { Button } from "../../../components/Button/Button";
 import { useNavigate } from "react-router-dom";
-import style from "./Workout.module.css";
+import style from "../Workout.module.css";
+import {ScheduleModal} from "../ScheduleModal/ScheduleModal";
 
 type WorkoutType = {
     workouts: SingleWorkout[];
@@ -10,6 +11,7 @@ type WorkoutType = {
 
 const WorkoutsEnterface = ({ workouts }: WorkoutType) => {
     const navigate = useNavigate();
+    const [open, setOpen] = useState(false)
 
     return (
         <>
@@ -23,9 +25,10 @@ const WorkoutsEnterface = ({ workouts }: WorkoutType) => {
                 <Button
                     position={'role'}
                     title={'Расписание'}
-                    onClick={() => navigate('/Schedule')}
+                    onClick={() => setOpen(true)}
                     isActive={false}
                 />
+                <ScheduleModal isOpen={open} onClose={() => setOpen(false)} />
             </div>
 
             <div className={style.workouts_container}>

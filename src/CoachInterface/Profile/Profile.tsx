@@ -2,27 +2,29 @@ import React, { useState } from 'react';
 import style from "./Profile.module.css";
 import Header from "../../components/Header/Header";
 import { Button } from "../../components/Button/Button";
-import { useNavigate } from "react-router-dom";
 import Title from "../../components/Title/Title";
 import Toast from "../../components/Toast/Toast";
+import { useEffect } from 'react';
 
-type ProfileProps = {
+export type ProfileProps = {
     id: number;
     name: string;
     surname: string;
     fatherName: string;
     dateOfBirth: string;
     mail: string;
+    img: string,
     onUpdate: (updatedUser: any) => void;
 };
 
-const Profile = ({ id, name, surname, fatherName, dateOfBirth, mail, onUpdate }: ProfileProps) => {
+const Profile = ({ id, name, surname, fatherName, dateOfBirth, mail, img, onUpdate }: ProfileProps) => {
     const [profileData, setProfileData] = useState({
         name,
         surname,
         fatherName,
         dateOfBirth,
-        mail
+        mail,
+        img
     });
 
     const [toast, setToast] = useState<{ message: string, type: 'success' | 'error' } | null>(null);
@@ -53,6 +55,31 @@ const Profile = ({ id, name, surname, fatherName, dateOfBirth, mail, onUpdate }:
         setTimeout(() => setToast(null), 3000);
     };
 
+    useEffect(() => {
+        if (!profileData.img) {
+            fetch('https://api.unsplash.com/photos?client_id=aw1H6GqFootLs95dktBFgB-ixDIMI7Yjt7SPvzLLcNw')
+                .then(res => res.json())
+                .then(data => {
+                    const imgs = data.map((photo: any) => ({
+                        id: photo.id,
+                        img: photo.urls.small,
+                        alt: photo.alt_description,
+                    }));
+
+                    const randomImg = imgs[Math.floor(Math.random() * imgs.length)]?.img;
+
+                    setProfileData(prev => ({
+                        ...prev,
+                        img: randomImg || prev.img
+                    }));
+                })
+                .catch(() => {
+                    console.warn("Не удалось загрузить фото :(");
+                });
+        }
+    }, []);
+
+
     return (
         <>
             <Header position="coach" />
@@ -64,11 +91,23 @@ const Profile = ({ id, name, surname, fatherName, dateOfBirth, mail, onUpdate }:
                 <div className={`${style.profile}`}>
                     <h3>Данные пользователя</h3>
                     <form onSubmit={(e) => e.preventDefault()}>
-                        <label htmlFor="name">Имя</label>
-                        <input type="text" id="name" name="name" value={profileData.name} onChange={handleChange} />
+                        <div className={style.upper_container}>
+                            <div className={style.upper_inputs}>
+                                <label htmlFor="name">Имя</label>
+                                <input type="text" id="name" name="name" value={profileData.name}
+                                       onChange={handleChange}/>
 
-                        <label htmlFor="surname">Фамилия</label>
-                        <input type="text" id="surname" name="surname" value={profileData.surname} onChange={handleChange} />
+                                <label htmlFor="surname">Фамилия</label>
+                                <input type="text" id="surname" name="surname" value={profileData.surname}
+                                       onChange={handleChange}/>
+                            </div>
+                            {profileData.img && (
+                                <img
+                                    src={profileData.img}
+                                    alt="Фото профиля"
+                                />
+                            )}
+                        </div>
 
                         <label htmlFor="fatherName">Отчество</label>
                         <input type="text" id="fatherName" name="fatherName" value={profileData.fatherName} onChange={handleChange} />
