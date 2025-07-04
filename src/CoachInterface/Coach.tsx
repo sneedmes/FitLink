@@ -14,6 +14,7 @@ import TeamPage from "./Teams/TeamsInfo/TeamPage";
 import PlayerProfile from "./Teams/TeamsInfo/PlayerProfile/PlayerProfile";
 import CoachProfile from "./Teams/TeamsInfo/CoachProfile/CoachProfile";
 import PlayerStat from "./Teams/TeamsInfo/PlayerProfile/PlayerStat/PlayerStat";
+import TacticalBoard from "./TacticalBoard/TacticalBoard";
 
 export type SingleEvent = {
     id: number;
@@ -429,7 +430,7 @@ const CoachInterface = () => {
                                                          img={profile.img}
                                                          onUpdate={handleUpdateProfile}/>}/>
 
-                {/*<Route path="/TacticalBoard" element={<TacticalBoard/>}/>*/}
+                <Route path="/TacticalBoard" element={<TacticalBoard/>}/>
 
                 <Route path="/workouts" element={<Workout workouts={workouts}/>}/>
                 <Route path="/CreateWorkout" element={<CreateWorkout setWorkout={setWorkouts}/>}/>

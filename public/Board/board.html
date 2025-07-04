@@ -1,0 +1,323 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style type="text/css">.style__panel-Fww7i {
+        display: flex;
+        flex-direction: column;
+        box-sizing: border-box;
+        background: #616467;
+    }
+    .style__draw-block-3Qi2L {
+        padding: 10px 0;
+    }
+    .style__draw-block-3Qi2L:hover {
+        background: #787879;
+    }
+    .style__draw-btn-1b9rx {
+        color: #fff;
+        font-size: 18px;
+        text-align: center;
+        line-height: 2em;
+    }
+    .style__draw-btn-1b9rx:hover {
+        color: #419adf;
+        cursor: pointer;
+    }
+    .style__draw-btn-1b9rx.style__draw-btn-1b9rx.style__checked-12TLL:hover {
+        color: #787879;
+    }
+    .style__draw-btn-1b9rx.style__checked-12TLL {
+        background: #419adf;
+    }
+    .style__line-color-block-1cXqL {
+        display: flex;
+        justify-content: space-around;
+        box-sizing: border-box;
+        padding: 15px;
+    }
+    .style__line-color-block-1cXqL div {
+        cursor: pointer;
+        width: 15px;
+        height: 15px;
+        transition: transform 0.5s;
+    }
+    .style__line-color-block-1cXqL div:hover {
+        transform: rotate(45deg);
+        transition: transform 0.5s;
+    }
+    .style__line-color-block-1cXqL div.style__selected-3ZC4s {
+        transform: rotate(135deg);
+        transition: transform 0.2s;
+    }
+    .style__line-width-block-27xxc {
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+    }
+    .style__line-width-btn-1kFil {
+        padding: 5px 10px;
+        cursor: pointer;
+    }
+    .style__line-width-btn-1kFil div {
+        border-radius: 999px;
+        background: #27292a;
+        transition: transform 0.5s;
+    }
+    .style__line-width-btn-1kFil div.style__selected-3ZC4s {
+        transform: rotateX(180deg);
+        transition: transform 0.2s;
+        background: #fff;
+    }
+    .style__line-width-btn-1kFil:hover div {
+        transform: rotateY(180deg);
+        transition: transform 0.5s;
+    }
+    .style__line-style-block-zAXRy {
+        box-sizing: border-box;
+        padding: 0 20px;
+        height: 40px;
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+    }
+    .style__line-style-btn-1pHUC {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        cursor: pointer;
+        width: 35%;
+        height: 100%;
+        transition: transform 0.2s;
+    }
+    .style__line-style-btn-1pHUC:not(.style__selected-3ZC4s):hover div {
+        transform: rotate(15deg);
+        transition: transform 0.5s;
+    }
+    .style__line-style-btn-1pHUC.style__selected-3ZC4s {
+        transform: rotate(350deg);
+        transition: transform 0.5s;
+    }
+    .style__selected-3ZC4s .style__line-normal-1tI35 {
+        background: #fff;
+    }
+    .style__line-normal-1tI35 {
+        height: 8px;
+        background: #27292a;
+    }
+    .style__selected-3ZC4s .style__line-dash-2-kMH {
+        border-bottom: 8px dashed #fff;
+    }
+    .style__line-dash-2-kMH {
+        border-bottom: 8px dashed #27292a;
+    }
+    .style__ele-block-wYR5X {
+        width: 100%;
+        height: 30%;
+        padding: 10px 10%;
+        box-sizing: border-box;
+        overflow: scroll;
+        text-align: center;
+    }
+    .style__ele-block-wYR5X:hover {
+        background: #787979;
+    }
+    .style__player-element-9XtqU {
+        margin: 10px;
+        display: inline-block;
+        cursor: pointer;
+        text-align: center;
+    }
+    .style__player-element-9XtqU:hover {
+        background: #419adf;
+    }
+    .style__player-element-9XtqU img {
+        height: 100%;
+    }
+    .style__tool-bar-mM1a_ {
+        height: 30px;
+        display: flex;
+        justify-content: space-between;
+    }
+    .style__tool-box-left-1nOi8,
+    .style__tool-box-right-2VkRg {
+        height: 100%;
+        display: flex;
+        background: #27292a;
+    }
+    .style__tool-item-39cYr {
+        padding: 0 15px;
+        height: 30px;
+        line-height: 30px;
+        color: #fff;
+        text-align: center;
+        cursor: pointer;
+    }
+    .style__tool-item-39cYr:hover {
+        background: #57595a;
+    }
+    .style__tool-item-39cYr.style__disabled-3Nqs5 {
+        cursor: not-allowed;
+    }
+    .style__arrow-active-9Z5Zk {
+        color: #239336;
+    }
+    .style__ok-btn-3ONhT {
+        position: absolute;
+        bottom: 0;
+        left: 50%;
+        margin-left: -50px;
+        display: inline-block;
+        width: 100px;
+        height: 30px;
+        line-height: 30px;
+        background: #419adf;
+        color: #fff;
+        text-align: center;
+    }
+    .style__ok-btn-3ONhT:hover {
+        cursor: pointer;
+        background: #2a6796;
+    }
+    </style>
+</head>
+<body>
+<div id="main">
+    <div>
+        <div style="text-align: center; margin-bottom: 20px;">
+            <button style="width: 50px;">+</button>
+            <button style="width: 50px;">-</button>
+        </div>
+        <div style="display: flex;">
+            <div class="style__panel-Fww7i" style="width: 240px; height: 624px;">
+                <div class="style__draw-block-3Qi2L">
+                    <div class="style__line-color-block-1cXqL">
+                        <div class="style__selected-3ZC4s" style="background: rgb(35, 37, 38);"></div>
+                        <div class="" style="background: rgb(204, 28, 35);"></div>
+                        <div class="" style="background: rgb(238, 188, 18);"></div>
+                        <div class="" style="background: rgb(13, 117, 197);"></div>
+                    </div>
+                    <div class="style__line-style-block-zAXRy">
+                        <div class="style__line-style-btn-1pHUC style__selected-3ZC4s">
+                            <div class="style__line-normal-1tI35"></div>
+                        </div>
+                        <div class="style__line-style-btn-1pHUC ">
+                            <div class="style__line-dash-2-kMH"></div>
+                        </div>
+                    </div>
+                    <div class="style__line-width-block-27xxc">
+                        <div class="style__line-width-btn-1kFil">
+                            <div class="style__selected-3ZC4s" style="width: 10px; height: 10px;"></div>
+                        </div>
+                        <div class="style__line-width-btn-1kFil">
+                            <div class="" style="width: 15px; height: 15px;"></div>
+                        </div>
+                        <div class="style__line-width-btn-1kFil">
+                            <div class="" style="width: 20px; height: 20px;"></div>
+                        </div>
+                    </div>
+                    <div class="style__draw-btn-1b9rx ">Free Draw</div>
+                    <div class="style__draw-btn-1b9rx ">Free Line</div>
+                    <div class="style__draw-btn-1b9rx ">Text</div>
+                </div>
+                <div class="style__ele-block-wYR5X">
+                    <div draggable="true" class="style__player-element-9XtqU" style="height: 40px;"><img
+                            src="imgs/red1.png"></div>
+                    <div draggable="true" class="style__player-element-9XtqU" style="height: 40px;"><img
+                            src="imgs/red2.png"></div>
+                    <div draggable="true" class="style__player-element-9XtqU" style="height: 40px;"><img
+                            src="imgs/red3.png"></div>
+                    <div draggable="true" class="style__player-element-9XtqU" style="height: 40px;"><img
+                            src="imgs/red4.png"></div>
+                    <div draggable="true" class="style__player-element-9XtqU" style="height: 40px;"><img
+                            src="imgs/red5.png"></div>
+                    <div draggable="true" class="style__player-element-9XtqU" style="height: 40px;"><img
+                            src="imgs/red6.png"></div>
+                    <div draggable="true" class="style__player-element-9XtqU" style="height: 40px;"><img
+                            src="imgs/yellow1.png"></div>
+                    <div draggable="true" class="style__player-element-9XtqU" style="height: 40px;"><img
+                            src="imgs/yellow2.png"></div>
+                    <div draggable="true" class="style__player-element-9XtqU" style="height: 40px;"><img
+                            src="imgs/yellow3.png"></div>
+                    <div draggable="true" class="style__player-element-9XtqU" style="height: 40px;"><img
+                            src="imgs/yellow4.png"></div>
+                    <div draggable="true" class="style__player-element-9XtqU" style="height: 40px;"><img
+                            src="imgs/yellow5.png"></div>
+                    <div draggable="true" class="style__player-element-9XtqU" style="height: 40px;"><img
+                            src="imgs/yellow6.png"></div>
+                    <div draggable="true" class="style__player-element-9XtqU" style="height: 40px;"><img
+                            src="imgs/blue1.png"></div>
+                    <div draggable="true" class="style__player-element-9XtqU" style="height: 40px;"><img
+                            src="imgs/blue2.png"></div>
+                    <div draggable="true" class="style__player-element-9XtqU" style="height: 40px;"><img
+                            src="imgs/blue3.png"></div>
+                    <div draggable="true" class="style__player-element-9XtqU" style="height: 40px;"><img
+                            src="imgs/blue4.png"></div>
+                    <div draggable="true" class="style__player-element-9XtqU" style="height: 40px;"><img
+                            src="imgs/blue5.png"></div>
+                    <div draggable="true" class="style__player-element-9XtqU" style="height: 40px;"><img
+                            src="imgs/blue6.png"></div>
+                </div>
+                <div class="style__ele-block-wYR5X">
+                    <div draggable="true" class="style__player-element-9XtqU" style="height: 40px;"><img
+                            src="imgs/football.png"></div>
+                    <div draggable="true" class="style__player-element-9XtqU" style="height: 40px;"><img
+                            src="imgs/medicine_ball.png"></div>
+                    <div draggable="true" class="style__player-element-9XtqU" style="height: 40px;"><img
+                            src="imgs/opponent.png"></div>
+                    <div draggable="true" class="style__player-element-9XtqU" style="height: 40px;"><img
+                            src="imgs/obstacle.png"></div>
+                    <div draggable="true" class="style__player-element-9XtqU" style="height: 40px;"><img
+                            src="imgs/goal1.png"></div>
+                    <div draggable="true" class="style__player-element-9XtqU" style="height: 40px;"><img
+                            src="imgs/goal2.png"></div>
+                    <div draggable="true" class="style__player-element-9XtqU" style="height: 40px;"><img
+                            src="imgs/goal3.png"></div>
+                    <div draggable="true" class="style__player-element-9XtqU" style="height: 40px;"><img
+                            src="imgs/flag.png"></div>
+                    <div draggable="true" class="style__player-element-9XtqU" style="height: 40px;"><img
+                            src="imgs/coordination_ladder2.png"></div>
+                    <div draggable="true" class="style__player-element-9XtqU" style="height: 40px;"><img
+                            src="imgs/cone_red_big.png"></div>
+                    <div draggable="true" class="style__player-element-9XtqU" style="height: 40px;"><img
+                            src="imgs/cone_blue_big.png"></div>
+                    <div draggable="true" class="style__player-element-9XtqU" style="height: 40px;"><img
+                            src="imgs/cone_yellow_big.png"></div>
+                    <div draggable="true" class="style__player-element-9XtqU" style="height: 40px;"><img
+                            src="imgs/cone_grey_big.png"></div>
+                    <div draggable="true" class="style__player-element-9XtqU" style="height: 40px;"><img
+                            src="imgs/cross.png"></div>
+                </div>
+            </div>
+            <div style="position: relative;">
+                <div class="canvas-container"
+                     style="width: 960px; height: 624px; position: relative; user-select: none;">
+                    <canvas width="1200" height="780" id="canvas" class="lower-canvas"
+                            style="position: absolute; width: 760px; height: 424px; left: 0px; top: 0px; touch-action: none; user-select: none;"></canvas>
+                    <canvas class="upper-canvas " width="960" height="624"
+                            style="position: absolute; width: 760px; height: 424px; left: 0px; top: 0px; touch-action: none; user-select: none; cursor: default;"></canvas>
+                </div>
+                <div class="style__tool-bar-mM1a_">
+                    <div class="style__tool-box-left-1nOi8"></div>
+                    <div class="style__tool-box-right-2VkRg">
+                        <div class="style__tool-item-39cYr " style="color: rgb(65, 154, 223);">◀</div>
+                        <div class="style__tool-item-39cYr style__disabled-3Nqs5" style="color: rgb(65, 154, 223);">▶
+                        </div>
+                        <div class="style__tool-item-39cYr" style="color: rgb(65, 154, 223);">Save</div>
+                        <div class="style__tool-item-39cYr" style="color: rgb(89, 169, 78);">Img</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<script src="fabric.js"></script>
+<script src="react.development.js"></script>
+<script src="react-dom.development.js"></script>
+<script src="bundle.js"></script>
+</body>
+</html>
