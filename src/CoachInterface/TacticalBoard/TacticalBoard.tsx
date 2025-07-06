@@ -18,7 +18,9 @@ const TacticalBoard = () => {
                         border: 'none',
                     }}
                 />
+                <p>Данная доска доступна с исходным кодом по ссылке: <a href="">github</a></p>
             </div>
+
         </>
     );
 };

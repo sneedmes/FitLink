@@ -1,0 +1,180 @@
+.card {
+    background-color: #f9f9f9;
+    border: 1px solid #dcdcdc;
+    border-radius: 12px;
+    padding: 20px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+
+    display: flex;
+    flex-direction: column;
+    width: 70%;
+    margin: 30px 0;
+    gap: 10px;
+}
+
+.card h2{
+    margin-bottom: 15px;
+}
+
+.label {
+    font-weight: bold;
+    margin-left: 10px;
+}
+
+.stat_container{
+    display: flex;
+    flex-direction: row;
+    gap: 30px;
+}
+
+.stat{
+    width: 100%;
+}
+
+.card_stat{
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin-bottom: 15px;
+}
+
+/* STATCARD */
+.statCard {
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    padding: 16px;
+    margin-bottom: 16px;
+}
+
+.statTotal {
+    display: flex;
+    justify-content: space-between;
+    padding: 8px 0;
+    border-bottom: 1px solid #eee;
+    font-weight: bold;
+}
+
+.statItems {
+    margin: 8px 0;
+}
+
+.statItem {
+    display: grid;
+    grid-template-columns: 1fr auto auto; /* 1-й — растягивается, 2-й и 3-й — по ширине контента */
+    grid-template-areas: "label value actions";
+    align-items: center;
+    padding: 6px 0;
+}
+
+.statLabel {
+    grid-area: label;
+    justify-self: start; /* слева */
+}
+
+.statValue {
+    grid-area: value;
+    justify-self: end; /* "сдвинута" вправо */
+    padding: 0 10px; /* отступ для красоты */
+}
+
+.statActions,
+.statControls {
+    grid-area: actions;
+    justify-self: end; /* по правому краю */
+}
+
+.statActions{
+    display: flex;
+    flex-direction: row;
+    gap: 5px;
+}
+
+.statButton{
+    font-size: 20px;
+}
+
+.statControls{
+    display: flex;
+    gap: 5px;
+}
+
+.addButton {
+    background-color: #f0f0f0;
+    border: none;
+    border-radius: 4px;
+    padding: 8px 16px;
+    cursor: pointer;
+    width: 100%;
+    margin-top: 8px;
+}
+
+.addButton:hover {
+    background-color: #e0e0e0;
+}
+
+.statCardsContainer {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 16px;
+    margin-top: 16px;
+}
+
+.itemButtons {
+    display: flex;
+    gap: 8px;
+    margin-top: 4px;
+}
+
+.buttonGroup {
+    display: flex;
+    justify-content: flex-end;
+    gap: 1rem;
+    margin-top: 2rem;
+}
+
+.btn {
+    padding: 0.75rem 1.5rem;
+    font-size: 1rem;
+    border: none;
+    border-radius: 0.75rem;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.25s ease;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.08);
+}
+
+
+/* MODAL */
+.saveBtn {
+    background: var(--color-active);
+
+    &:hover {
+        transform: translateY(-1px);
+        box-shadow: 0 6px 14px var(--color-active);
+    }
+
+    &:active {
+        transform: translateY(0);
+        box-shadow: none;
+    }
+}
+
+/* "Отмена" — сдержанная, но стильная */
+.cancelBtn {
+    background: #f3f4f6;
+    color: #555;
+
+    &:hover {
+        background: #e5e7eb;
+        transform: translateY(-1px);
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+    }
+
+    &:active {
+        transform: translateY(0);
+        box-shadow: none;
+    }
+}
+
+

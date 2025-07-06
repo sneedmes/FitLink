@@ -63,9 +63,36 @@ const Header = ({position}: HeaderProps) => {
                                             isActive={false}/>
                                 </span>
                         </div>
-                        : <></>
+                        : position === 'player' &&
+                            <div className={`${style.nav_coach}`}>
+                                <Button position={'header'}
+                                        title={"События"}
+                                        onClick={() => navigate('/')}
+                                        isActive={false}/>
+                                <Button position={'header'}
+                                        title={"Статистика"}
+                                        onClick={() => navigate('/')}
+                                        isActive={false}/>
+                                <Button position={'header'}
+                                        title={"Команда"}
+                                        onClick={() => navigate('/Teams')}
+                                        isActive={false}/>
+                                <Button position={'header'}
+                                        title={"Тренировки"}
+                                        onClick={() => navigate('/Workouts')}
+                                        isActive={false}/>
+                                <Button position={'header'}
+                                        title={"Профиль"}
+                                        onClick={() => navigate('/Profile')}
+                                        isActive={false}/>
+                                <span>
+                                    <Button position={'header'}
+                                            title={"Выйти"}
+                                            onClick={() => navigate('/Main')}
+                                            isActive={false}/>
+                                </span>
+                            </div>
                 }
-
             </section>
         </header>
     );
