@@ -1,5 +1,5 @@
 import React, { createContext, useState, useContext, ReactNode } from "react";
-import {SingleEvent, ProfileProps, SingleWorkout, Team, initialTeams} from "./TypesData";
+import {SingleEvent, ProfileProps, SingleWorkout, Team, initialTeams, StatKey, StatItem} from "./TypesData";
 import img from "./assets/profile-photo.jpg"
 
 type AppContextType = {
@@ -11,6 +11,8 @@ type AppContextType = {
     setWorkouts: React.Dispatch<React.SetStateAction<SingleWorkout[]>>;
     teams: Team[];
     setTeams: React.Dispatch<React.SetStateAction<Team[]>>;
+    stats: Record<StatKey, StatItem[]>;
+    setStats: React.Dispatch<React.SetStateAction<Record<StatKey, StatItem[]>>>;
 };
 
 const AppContext = createContext<AppContextType | undefined>(undefined);
@@ -48,8 +50,33 @@ export const AppProvider = ({ children }: { children: ReactNode }) => {
 
     const [teams, setTeams] = useState<Team[]>(initialTeams); // Можно передать initialTeams, если есть
 
+    const [stats, setStats] = useState<Record<StatKey, StatItem[]>>({
+        goals: [
+            { label: 'КС - Рубин', value: 1 },
+            { label: 'КС - Зенит', value: 3 },
+            { label: 'ЦСКА - КС', value: 1 },
+            { label: 'Сочи - КС', value: 2 },
+        ],
+        assists: [
+            { label: 'КС - Рубин', value: 1 },
+            { label: 'КС - Зенит', value: 3 },
+            { label: 'ЦСКА - КС', value: 1 },
+            { label: 'Сочи - КС', value: 2 },
+        ],
+        cards: [
+            { label: 'Желтые', value: 0 },
+            { label: 'Красные', value: 0 },
+        ],
+        matches: [
+            { label: 'КС - Рубин', value: '' },
+            { label: 'КС - Зенит', value: '' },
+            { label: 'ЦСКА - КС', value: '' },
+            { label: 'Сочи - КС', value: '' },
+        ],
+    });
+
     return (
-        <AppContext.Provider value={{ profile, setProfile, events, setEvents, workouts, setWorkouts, teams, setTeams }}>
+        <AppContext.Provider value={{ profile, setProfile, events, setEvents, workouts, setWorkouts, teams, setTeams, stats, setStats }}>
             {children}
         </AppContext.Provider>
 );

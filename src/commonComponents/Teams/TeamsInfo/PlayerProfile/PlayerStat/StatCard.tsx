@@ -1,7 +1,8 @@
 import React from 'react';
 import styles from '../PlayerProfile.module.css';
 
-type StatCardProps = {
+export type StatCardProps = {
+    position: string;
     title: string;
     total: number;
     items: { label: string; value: number | string }[];
@@ -16,6 +17,7 @@ type StatCardProps = {
 };
 
 const StatCard = ({
+                      position,
                       title,
                       total,
                       items,
@@ -44,7 +46,7 @@ const StatCard = ({
                             <span className={styles.statValue}>{item.value}</span>
                         )}
 
-                        {(onIncrement && onDecrement) && (
+                        {(onIncrement && onDecrement && position === 'coach') && (
                             <div className={styles.statActions}>
                                 <button
                                     className={styles.statButton}
@@ -61,7 +63,7 @@ const StatCard = ({
                             </div>
                         )}
 
-                        {showControls && (
+                        {(showControls && position === 'coach') && (
                             <div className={styles.statControls}>
                                 {onEdit && (
                                     <button
@@ -85,7 +87,7 @@ const StatCard = ({
                 ))}
             </div>
 
-            {onAdd && addLabel && (
+            {onAdd && addLabel && position === 'coach' && (
                 <button className={styles.addButton} onClick={onAdd}>
                     {addLabel}
                 </button>

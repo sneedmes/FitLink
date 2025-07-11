@@ -8,8 +8,8 @@ function App() {
   return (
       <section className='app'>
           {/*<Registration/>*/}
-          <Coach/>
-          {/*<Player/>*/}
+          {/*<Coach/>*/}
+          <Player/>
       </section>
   );
 }

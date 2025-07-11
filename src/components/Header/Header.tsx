@@ -3,6 +3,8 @@ import {Button} from "../Button/Button";
 import {useNavigate} from 'react-router-dom';
 import React from "react";
 import logo from '../../assets/logo.png';
+import {useAppContext} from "../../Context";
+import {initialTeams} from "../../TypesData";
 
 type HeaderProps = {
     position: string
@@ -10,6 +12,13 @@ type HeaderProps = {
 
 const Header = ({position}: HeaderProps) => {
     const navigate = useNavigate()
+    const { profile } = useAppContext();
+
+    const player = initialTeams
+        .flatMap(team => team.players)
+        .find(p => p.profile.name === profile.name && p.profile.surname === profile.surname);
+    const playerId = player?.profile.id
+    console.log(playerId)
 
     return (
         <header className='header'>
@@ -71,7 +80,7 @@ const Header = ({position}: HeaderProps) => {
                                         isActive={false}/>
                                 <Button position={'header'}
                                         title={"Статистика"}
-                                        onClick={() => navigate('/')}
+                                        onClick={() => navigate(`/PlayerStat/${playerId}`)}
                                         isActive={false}/>
                                 <Button position={'header'}
                                         title={"Команда"}

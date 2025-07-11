@@ -53,6 +53,7 @@ const Player = () => {
                 <Route path="/team/:id" element={<TeamPage position={'player'} teams={data.teams}/>} />
                 <Route path="/coach/:id" element={<CoachProfile position={'player'} teams={data.teams} />} />
                 <Route path="/player/:id" element={<PlayerProfile position={'player'} teams={data.teams}/>} />
+                <Route path="/playerStat/:id" element={<PlayerStat position={'player'} teams={data.teams}/>} />
 
             </Routes>
         </BrowserRouter>

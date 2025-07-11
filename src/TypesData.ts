@@ -347,3 +347,6 @@ export const initialTeams: Team[] = [
         ]
     }
 ];
+
+export type StatItem = { label: string; value: number | string };
+export type StatKey = 'goals' | 'assists' | 'cards' | 'matches';
